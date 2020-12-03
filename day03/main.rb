@@ -13,12 +13,6 @@ def count_trees(lines, move, skip=1)
     end
 end
 
-result = [
-  count_trees(input, 1),
-  count_trees(input, 3),
-  count_trees(input, 5),
-  count_trees(input, 7),
-  count_trees(input, 1, 2),
-]
+result = [[1], [3], [5], [7], [1, 2]].map { |par| count_trees(input, *par) }
 puts "Part 1", result[1]
 puts "Part 1", result.reduce(&:*)
