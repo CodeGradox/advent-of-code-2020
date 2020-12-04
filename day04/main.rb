@@ -1,17 +1,16 @@
 #!/usr/bin/env ruby
 
 input = $<.read.split("\n\n")
-fields = %w(byr iyr eyr hgt hcl ecl pid)
 
-part1 = input.sum do |line|
+part1 = input.select do |line|
   line.match?(/hcl:/) &&
   line.match?(/pid:/) &&
   line.match?(/ecl:/) &&
   line.match?(/byr:/) &&
   line.match?(/iyr:/) &&
   line.match?(/eyr:/) &&
-  line.match?(/hgt:/) ? 1 : 0
-end
+  line.match?(/hgt:/)
+end.count
 
 puts "Part 1: #{ part1 }"
 
