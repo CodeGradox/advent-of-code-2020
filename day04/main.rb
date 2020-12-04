@@ -3,7 +3,17 @@
 input = $<.read.split("\n\n")
 fields = %w(byr iyr eyr hgt hcl ecl pid)
 
-puts "Part 1: #{ input.map { |l| l.split(/:#?\w+\s?/) }.count { |a| (fields - a).empty? } }"
+part1 = input.sum do |line|
+  line.match?(/hcl:/) &&
+  line.match?(/pid:/) &&
+  line.match?(/ecl:/) &&
+  line.match?(/byr:/) &&
+  line.match?(/iyr:/) &&
+  line.match?(/eyr:/) &&
+  line.match?(/hgt:/) ? 1 : 0
+end
+
+puts "Part 1: #{ part1 }"
 
 part2 = input.sum do |line|
     line.match?(/hcl:#[0-9a-f]{6}\b/) &&
