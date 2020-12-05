@@ -18,7 +18,7 @@ def solve(word)
   row * 8 + col
 end
 
-ids = $<.read.lines.map(&:chomp).map { |l| solve l }.sort
+ids = $<.read.lines.map(&:chomp).map! { |l| solve l }.sort!
 
 puts "Part 1: #{ ids.last }"
 puts "Part 2: #{ ids.each_cons(2).find { |(a, b)| b - a == 2 }&.yield_self { |a| a.sum / 2 } }"
