@@ -1,12 +1,6 @@
 #!/usr/bin/env ruby
 
-require "set"
-
 input = $<.read.split("\n\n")
-
-# part1 = input.sum do |answers|
-#   Set.new(answers.gsub(/\s/, "").chars).size
-# end
 
 part1, part2 = 0, 0
 
